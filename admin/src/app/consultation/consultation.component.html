@@ -1,0 +1,42 @@
+<div class="overflow-x-auto">
+  <table class="table-auto w-full text-center border border-gray-300 rounded-lg shadow-md mt-6">
+    <thead class="bg-blue-100 text-blue-900 uppercase font-semibold">
+      <tr>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Name</th>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Email</th>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Date</th>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Time</th>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Status</th>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Update Status</th>
+        <th class="px-4 py-3 border-b border-gray-300 whitespace-nowrap">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let consultation of consultations" class="hover:bg-gray-50">
+        <td class="border px-4 py-3 whitespace-nowrap">{{ consultation.name }}</td>
+        <td class="border px-4 py-3 whitespace-nowrap">{{ consultation.email }}</td>
+        <td class="border px-4 py-3 whitespace-nowrap">{{ consultation.date | date }}</td>
+        <td class="border px-4 py-3 whitespace-nowrap">{{ consultation.time }}</td>
+        <td class="border px-4 py-3 whitespace-nowrap">{{ consultation.status }}</td>
+        <td class="border px-4 py-3">
+          <select
+            [(ngModel)]="consultation.status"
+            class="px-3 py-1 border border-gray-300 rounded focus:outline-none focus:ring focus:border-blue-300"
+          >
+            <option *ngFor="let option of statusOptions" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </td>
+        <td class="border px-4 py-3">
+          <button
+            (click)="updateStatus(consultation._id, consultation.status)"
+            class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition-colors"
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

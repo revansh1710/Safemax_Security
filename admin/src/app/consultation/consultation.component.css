@@ -1,0 +1,26 @@
+.container {
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 25px;
+    overflow: hidden;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+  }
+  
